@@ -24,5 +24,6 @@
 #ifndef SORT_LIB_H
 #define SORT_LIB_H
 
+void selectionSort(int array[], int n);
 
 #endif

@@ -1,4 +1,3 @@
-
 /*
  * MIT License
  *
@@ -23,3 +22,21 @@
  */
 
 #include "sort_lib.h"
+
+void selectionSort(int array[], int n)
+{
+    for(int d = 0; d < n-1; d++)
+    {
+        int minIndex = d;
+        for(int i = d; i < n; i++)
+        {
+            if(array[i] < array[minIndex])
+            {
+                minIndex = i;
+            }
+        }
+        int h = array[d];
+        array[d] = array[minIndex];
+        array[minIndex] = h;
+    }
+}
