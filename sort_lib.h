@@ -25,5 +25,6 @@
 #define SORT_LIB_H
 
 void selectionSort(int array[], int n);
+void insertSort(int array[], int n);
 
 #endif

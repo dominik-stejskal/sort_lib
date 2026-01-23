@@ -40,3 +40,18 @@ void selectionSort(int array[], int n)
         array[minIndex] = h;
     }
 }
+
+void insertSort(int array[], int n)
+{
+    for(int d = 1; d < n; d++)
+    {
+        int inserted = array[d];
+        int i = d;
+        while((i < d) && (array[i-1] < inserted))
+        {
+            p[i] = p[i-1];
+            i--;
+        }
+        p[i] = vkladany;
+    }
+}
