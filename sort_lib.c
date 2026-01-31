@@ -23,21 +23,21 @@
 
 #include "sort_lib.h"
 
-void selectionSort(int array[], int n)
+void selectSort(int array[], int n)
 {
     for(int d = 0; d < n-1; d++)
     {
         int minIndex = d;
-        for(int i = d; i < n; i++)
+        for(int i = d+1; i < n; i++)
         {
             if(array[i] < array[minIndex])
             {
                 minIndex = i;
             }
         }
-        int h = array[d];
+        int temp = array[d];
         array[d] = array[minIndex];
-        array[minIndex] = h;
+        array[minIndex] = temp;
     }
 }
 
@@ -47,11 +47,28 @@ void insertSort(int array[], int n)
     {
         int inserted = array[d];
         int i = d;
-        while((i < d) && (array[i-1] < inserted))
+        while(i > 0 && array[i-1] > inserted)
         {
-            p[i] = p[i-1];
+            array[i] = array[i-1];
             i--;
         }
-        p[i] = vkladany;
+        array[i] = inserted;
+    }
+}
+
+void insertSortBegin(int array[], int n)
+{
+    n++;
+
+    for(int i = n; i > 0; i--)
+    {
+        array[i] = array[i-1];
+    }
+
+    for(int d = 1; d <= n; d++)
+    {
+        array[0] = array[d];
+
+
     }
 }
