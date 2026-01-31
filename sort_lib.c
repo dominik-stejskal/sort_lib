@@ -62,10 +62,9 @@ void insertSortBegin(int array[], int n)
     {
         array[i] = array[i-1];
     }
-    n++;
 
 
-    for(int d = 2; d < n; d++)
+    for(int d = 2; d <= n; d++)
     {
         array[0] = array[d];
         int i = d;
@@ -81,5 +80,20 @@ void insertSortBegin(int array[], int n)
     for(int i = 0; i < n; i++)
     {
         array[i] = array[i+1];
+    }
+}
+
+void insertSortEnd(int array[], int n)
+{
+    for(int d = n-2; d >=0; d-- )
+    {
+        array[n] = array[d];
+        int i = d;
+        while(array[i+1] < array[n])
+        {
+            array[i] = array[i+1];
+            i++;
+        }
+        array[i] = array[n];
     }
 }
