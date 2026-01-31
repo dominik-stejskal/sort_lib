@@ -58,17 +58,28 @@ void insertSort(int array[], int n)
 
 void insertSortBegin(int array[], int n)
 {
-    n++;
-
     for(int i = n; i > 0; i--)
     {
         array[i] = array[i-1];
     }
+    n++;
 
-    for(int d = 1; d <= n; d++)
+
+    for(int d = 2; d < n; d++)
     {
         array[0] = array[d];
+        int i = d;
+        while(array[i-1] > array[0])
+        {
+            array[i] = array[i-1];
+            i--;
+        }
+        array[i] = array[0];
+    }
 
 
+    for(int i = 0; i < n; i++)
+    {
+        array[i] = array[i+1];
     }
 }
