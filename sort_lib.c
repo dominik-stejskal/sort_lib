@@ -173,3 +173,32 @@ void shakerSort(int array[],int n)
         dL = lastL;
     }
 }
+
+void quickSort(int array[], int from, int to)
+{
+    if(from < to)
+    {
+        int pivot = array[(from+to)/2]; // jde vybrat i jiny prvek
+        int left = from;
+        int right = to;
+        do{
+            while(array[left] < pivot && left < to) left++;
+            while(array[right] > pivot && right > from) right--;
+            if(left < right)
+            {
+                int temp = array[left];
+                array[left] = array[right];
+                array[right] = temp;
+            }
+            if(left <= right)
+            {
+                left++;
+                right--;
+            }
+        }while(left < right);
+
+        QuickSort(array, from, right);
+        QuickSort(array, left, to);
+    }
+}
+
