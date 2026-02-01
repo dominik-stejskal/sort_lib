@@ -113,3 +113,22 @@ void bubleSort(int array[], int n)
         }
     }
 }
+
+void rippleSort(int array[], int n)
+{
+    int indexLC = n;
+    for(int d = 0; d < n-1; d = indexLC)
+    {
+        indexLC = n;
+        for(int i = n-1; i > d; i--)
+        {
+            if(array[i-1] > array[i])
+            {
+                int temp = array[i-1];
+                array[i-1] = array[i];
+                array[i] = temp;
+                indexLC = i;
+            }
+        }
+    }
+}
