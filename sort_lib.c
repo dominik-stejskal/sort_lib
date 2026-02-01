@@ -85,7 +85,7 @@ void insertSortBegin(int array[], int n)
 
 void insertSortEnd(int array[], int n)
 {
-    for(int d = n-2; d >=0; d-- )
+    for(int d = n-2; d >=0; d--)
     {
         array[n] = array[d];
         int i = d;
@@ -95,5 +95,21 @@ void insertSortEnd(int array[], int n)
             i++;
         }
         array[i] = array[n];
+    }
+}
+
+void bubleSort(int array[], int n)
+{
+    for(int d = 0; d < n-1; d++)
+    {
+        for(int i = n-1; i > d; i--)
+        {
+            if(array[i-1] > array[i])
+            {
+                int temp = array[i-1];
+                array[i-1] = array[i];
+                array[i] = temp;
+            }
+        }
     }
 }
