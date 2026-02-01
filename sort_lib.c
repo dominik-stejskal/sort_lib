@@ -197,8 +197,38 @@ void quickSort(int array[], int from, int to)
             }
         }while(left < right);
 
-        QuickSort(array, from, right);
-        QuickSort(array, left, to);
+        quickSort(array, from, right);
+        quickSort(array, left, to);
+    }
+}
+
+void quickSortDNF(int array[], int from, int to);   // TODO: vytvorit tuto metodu
+
+void MergeSort(int array[], int tempArray[], int from, int to)
+{
+    if(from < to)
+    {
+        int mid = (from + to)/2;
+        MergeSort(array, tempArray, from, mid);
+        MergeSort(array, tempArray, mid+1, to);
+
+        int temp = from;
+        int left = temp;
+        int right = mid+1;
+        while(left <= mid && right <= to)
+        {
+            if(array[left] <= array[right])
+                tempArray[temp++] = array[left++];
+            else
+                tempArray[temp++] = array[right++];
+        }
+        while(left <= mid) tempArray[temp++] = array[left++];
+        while(right <= to) tempArray[temp++] = array[right++];
+
+        for(int i = from; i <= to; i++)
+        {
+            array[i] = tempArray[i];
+        }
     }
 }
 
