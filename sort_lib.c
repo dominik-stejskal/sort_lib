@@ -132,3 +132,44 @@ void rippleSort(int array[], int n)
         }
     }
 }
+
+void ShakerSort(int array[],int n)
+{
+    int dL = 0;
+    int dR = n-1;
+    while(dL < dR)
+    {
+        // PHASE 1: from left
+
+        int lastR = dL;
+        for(int i = dL; i < dR; i++)
+        {
+            if(array[i] > array[i+1])
+            {
+                int temp = array[i];
+                array[i] = array[i+1];
+                array[i+1] = temp;
+                lastR = i;
+            }
+        }
+
+        dR = lastR;
+        if(dL >= dR)
+            break;
+
+         // PHASE 2: from right
+
+        int lastL = dR;
+        for(int i = dR; i > dL; i--)
+        {
+            if(array[i-1] > array[i])
+            {
+                int temp = array[i];
+                array[i] = array[i-1];
+                array[i-1] = temp;
+                lastL = i;
+            }
+        }
+        dL = lastL;
+    }
+}
