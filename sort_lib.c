@@ -133,7 +133,7 @@ void rippleSort(int array[], int n)
     }
 }
 
-void ShakerSort(int array[],int n)
+void shakerSort(int array[],int n)
 {
     int dL = 0;
     int dR = n-1;
