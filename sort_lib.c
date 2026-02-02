@@ -41,6 +41,7 @@ void selectSort(int array[], int n)
     }
 }
 
+
 void insertSort(int array[], int n)
 {
     for(int d = 1; d < n; d++)
@@ -89,7 +90,7 @@ void insertSortEnd(int array[], int n)
     {
         array[n] = array[d];
         int i = d;
-        while(array[i+1] < array[n])
+        while(array[i+1] > array[n])
         {
             array[i] = array[i+1];
             i++;
@@ -116,7 +117,7 @@ void bubleSort(int array[], int n)
 
 void rippleSort(int array[], int n)
 {
-    int indexLC = n;
+    int indexLC;
     for(int d = 0; d < n-1; d = indexLC)
     {
         indexLC = n;
@@ -178,7 +179,7 @@ void quickSort(int array[], int from, int to)
 {
     if(from < to)
     {
-        int pivot = array[(from+to)/2]; // jde vybrat i jiny prvek
+        int pivot = array[from+(to-from)/2];
         int left = from;
         int right = to;
         do{
@@ -202,13 +203,45 @@ void quickSort(int array[], int from, int to)
     }
 }
 
-void quickSortDNF(int array[], int from, int to);   // TODO: vytvorit tuto metodu
+void quickSortDNF(int array[], int from, int to)
+{
+    if(from < to)
+    {
+        int pivot = array[from+(to-from)/2];
+        int left = from;
+        int right = to;
+        int i = left;
+        while(i <= right)
+        {
+            if(array[i] < pivot)
+            {
+                int temp = array[left];
+                array[left] = array[i];
+                array[i] = temp;
+                left++;
+                i++;
+            }
+            else if(array[i] > pivot)
+            {
+                int temp = array[right];
+                array[right] = array[i];
+                array[i] = temp;
+                right--;
+            }
+            else
+                i++;
+        }
+
+        quickSortDNF(array, from, left-1);
+        quickSortDNF(array, right+1, to);
+    }
+}
 
 void MergeSort(int array[], int tempArray[], int from, int to)
 {
     if(from < to)
     {
-        int mid = (from + to)/2;
+        int mid = from+(to-from)/2;
         MergeSort(array, tempArray, from, mid);
         MergeSort(array, tempArray, mid+1, to);
 
