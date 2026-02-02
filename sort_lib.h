@@ -24,7 +24,14 @@
 #ifndef SORT_LIB_H
 #define SORT_LIB_H
 
-void selectionSort(int array[], int n);
+void selectSort(int array[], int n);
 void insertSort(int array[], int n);
-
+void insertSortBegin(int array[], int n);
+void insertSortEnd(int array[], int n);
+void bubbleSort(int array[], int n);
+void rippleSort(int array[], int n);
+void shakerSort(int array[], int n);
+void quickSort(int array[], int from, int to);
+void quickSortDNF(int array[], int from, int to);
+void mergeSort(int array[], int tempArray[], int from, int to);
 #endif

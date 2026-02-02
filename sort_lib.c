@@ -99,7 +99,7 @@ void insertSortEnd(int array[], int n)
     }
 }
 
-void bubleSort(int array[], int n)
+void bubbleSort(int array[], int n)
 {
     for(int d = 0; d < n-1; d++)
     {
@@ -237,7 +237,7 @@ void quickSortDNF(int array[], int from, int to)
     }
 }
 
-void MergeSort(int array[], int tempArray[], int from, int to)
+void mergeSort(int array[], int tempArray[], int from, int to)
 {
     if(from < to)
     {
