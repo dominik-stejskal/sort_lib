@@ -90,7 +90,7 @@ void insertSortEnd(int array[], int n)
     {
         array[n] = array[d];
         int i = d;
-        while(array[i+1] > array[n])
+        while(array[i+1] < array[n])
         {
             array[i] = array[i+1];
             i++;
@@ -242,8 +242,8 @@ void mergeSort(int array[], int tempArray[], int from, int to)
     if(from < to)
     {
         int mid = from+(to-from)/2;
-        MergeSort(array, tempArray, from, mid);
-        MergeSort(array, tempArray, mid+1, to);
+        mergeSort(array, tempArray, from, mid);
+        mergeSort(array, tempArray, mid+1, to);
 
         int temp = from;
         int left = temp;
