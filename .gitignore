@@ -1,3 +1,25 @@
 # notepad KWrite
-.sort_lib.c.kate-swp
-.sort_lib.h.kate-swp
+*.kate-swp
+
+# Kompilované binární soubory (objektové soubory)
+*.o
+*.obj
+
+# Spustitelné soubory (výsledné programy)
+# Pokud tvůj testovací program pojmenuješ jinak, přidej ho sem
+test_suite
+*.exe
+*.out
+*.app
+
+# Archivy (statické knihovny)
+*.a
+*.lib
+
+# Dočasné soubory editorů a operačních systémů
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
