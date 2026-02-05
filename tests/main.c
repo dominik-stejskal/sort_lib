@@ -1,5 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include "sort_lib.h"   // Quite useful to import this library to show how this library works
+
+#define MAX 100 // Lenght of example array
 
 #ifdef _WIN32
 #include <windows.h>
@@ -100,14 +103,58 @@ int menu()
     printf("Merge Sort ............10\n");
     printf("-------------------------\n");
     printf(T_RED "End of program .........0\n" RESET);
+
+    printf("\nEnter number of your choice:\t");
+    int choice = 0;
+    scanf("%d", &choice);
+    return choice;
+}
+
+int listArray(int array[], int n)
+{
+    for(int i = 0; i < n-1; i++)
+    {
+        printf("%d, ", array[i]);
+    }
+    pritf("%d", array[n-1]);
+}
+
+void isSorted(int array[], int n)
+{
+    for(int i = 0; i < n-1; i++)
+    {
+        if(array[i] > array[i+1])
+        {
+            printf("Array wasn't sorted!\n");
+            break;
+        }
+    }
+    printf("Array was sorted succesfully!\n");
+}
+
+void copy(int input[], int output[], int n)
+{
+    for(int i = 0; i < n; i++)
+    {
+        output[i] = input[i];
+    }
 }
 
 int main()
 {
     int choice = 1;
-    while(choice > 0 && choice <= 8)
+    int example[MAX] = {5, 1, 4, 9, 8, 2, 0, 6, 7, 3};
+    int temp[MAX];
+    while(choice != 0)
     {
         choice = menu();
+        switch(choice)
+        {
+            case 0:
+                break;
+            case 1:
+                SelectSort(temp)
+        }
     }
     return 0;
 }
